@@ -15,7 +15,7 @@ export const goodsFromServer = [
   'Garlic',
 ];
 
-function getPreparedGoods(goods, sortType, reversedFlag) {
+function getSortedGoods(goods, sortType, reversedFlag) {
   const preparedGoods = [...goods];
 
   if (sortType) {
@@ -98,8 +98,10 @@ export const App = () => {
       </div>
 
       <ul>
-        {getPreparedGoods(goodsFromServer, sortType, reversed).map(good => (
-          <li data-cy="Good">{good}</li>
+        {getSortedGoods(goodsFromServer, sortType, reversed).map(good => (
+          <li key={good} data-cy="Good">
+            {good}
+          </li>
         ))}
       </ul>
     </div>
